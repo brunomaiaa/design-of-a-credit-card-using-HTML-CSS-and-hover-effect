@@ -2,9 +2,10 @@
     --white: #ffffff;
     --gray: #999999;
     --purple: #442c61;
+    --yellow: #f79e1b;
     --red: #eb001b;
     --light-blue: #0061ff;
-    --dark-blue: #081889e;
+    --dark-blue: #08189e;
 
 }
 
@@ -65,3 +66,140 @@
 
 
 }
+
+/* Card Front Face */
+
+#chip {
+    width: 60px;
+    height: 60px;
+    top: 100px;
+    left: 50px;
+}
+
+#signal {
+    width: 25px;
+    height: 25px;
+    top: 115px;
+    left: 115px;
+    transform: rotate(90deg);
+}
+
+#logo {
+    width: 80px;
+    height: 85px;
+    bottom: 30px;
+    left: 40px;
+}
+
+#owner {
+    bottom: 55px;
+    left: 140px;
+    font-size: 1.35rem;
+    letter-spacing: 1px;
+    color: var(--white);
+}
+
+/* Card Back Face */
+
+.card .face.back {
+    transform: rotateY(180deg);
+}
+
+#graybar {
+    width: 100%;
+    height: 50px;
+    top: 15px;
+   background: var(--gray);
+}
+
+#card-info {
+    width: 100%;
+	bottom: 15px;
+	padding: 0 20px;
+	color: var(--white);
+
+}
+
+#card-number {
+    letter-spacing: 2px;
+    font-size: 1.3rem;
+}
+
+#card-info .informations:not(:first-child) {
+    margin-left: 10px;
+}
+
+#card-info .flex .informations {
+    align-items: center;
+}
+
+#card-info .flex .informations .label {
+    display:block;
+    font-size: 0.4rem;
+    margin-right: 4px;
+    width: 30px;
+}
+
+/* Flags */
+
+.card .face.front::before,
+.card .face.front::after,
+.card .face.back::before,
+.card .face.back::after {
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    opacity: 0.75;
+}
+
+.card .face.front::before,
+.card .face.front::after {
+    top:10px;
+    mix-blend-mode: overlay;
+}
+
+.card .face.back::before,
+.card .face.back::after {
+    bottom:30px;
+    mix-blend-mode: hue;
+}
+
+.card .face.front::before,
+.card .face.back::before {
+    right:20px
+
+}
+
+.card .face.front::after,
+.card .face.back::after {
+    right:45px;
+}
+
+.card .face.front::before {
+    background: var(--yellow);
+}
+
+.card .face.front::after {
+    background: var(--red);
+}
+
+.card .face.back::before {
+    background: var(--light-blue);
+}
+
+.card .face.back::after {
+    background: var(--dark-blue);
+}
+
+/* Animation */
+
+.card:hover .face.front {
+    transform: rotateY(180deg);
+}
+
+.card:hover .face.back {
+    transform: rotateY(360deg);
+}
+
